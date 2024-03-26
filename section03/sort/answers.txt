@@ -1,0 +1,23 @@
+sort1 uses: Bubble sort
+
+How do you know?:
+Timing the programm gave:
+    reversed (worst case) - 5.022s
+    sorted (best case) - 0.438s
+    random (general case) -
+
+sort2 uses: Merge sort
+
+How do you know?:
+Timing the programm gave:
+    reversed (worst case) - 0.443s
+    sorted (best case) - 0.587s
+    random (general case) -
+
+sort3 uses: Selection sort
+
+How do you know?:
+Timing the programm gave:
+    reversed (worst case) - 2.568s
+    sorted (best case) - 2.243s
+    random (general case) -

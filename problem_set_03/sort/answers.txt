@@ -1,0 +1,84 @@
+sort1 uses: bubble sort
+
+How do you know?:
+Using the time command, the following results were obtained for sort1 (real time):
+    - random5000     0.116s
+    - random10000    0.277s
+    - random50000    5.724s
+    - reversed5000   0.073s
+    - reversed10000  0.240s
+    - reversed50000  5.183s
+    - sorted5000     0.065s
+    - sorted10000    0.079s
+    - sorted50000    0.485s
+Looking at these results, two observations can be made:
+1. For reversed and sorted lists of size 50000, time requirements vary significantly,
+which suggests that upper and lower bounds of the algorithm running time follow different
+relationships. This behaviour is indicative of the bubble sort algorithm.
+2. For random and reversed lists, as the problem size increases, the time requirements
+increase seemingly exponentially. On the other hand, for sorted lists, the time requirements
+appear to scale linearly with the problem size. The corresponding scalings of O(n^2) and
+OMEGA(n) characterise the bubble sort algorithm.
+
+When compared to the other two sorting algorithms:
+1. In the worst-case scenario (reversed50000), it is the slowest (5.183s vs 0.447s and 2.484s).
+2. In the best-case scenario (sorted50000), it is the fastest (0.485s vs 0.668s and 2.274s).
+Points 1. and 2. suggest that the algorithm is of the bubble sort kind.
+
+
+sort2 uses: merge sort
+
+How do you know?:
+Using the time command, the following results were obtained for sort2 (real time):
+    - random5000     0.032s
+    - random10000    0.144s
+    - random50000    0.556s
+    - reversed5000   0.040s
+    - reversed10000  0.091s
+    - reversed50000  0.447s
+    - sorted5000     0.046s
+    - sorted10000    0.081s
+    - sorted50000    0.668s
+Similarly to the previous sorting algorithm:
+1. For reversed and sorted lists of size 50000, time requirements appear to be similar,
+which suggests that upper and lower bounds of the algorithm running time follow the same
+relationships. This behaviour is indicative of the selection sort algorithm and the merge
+sort algorithm.
+2. For random and reversed lists, as the problem size increases, the time requirements
+increase somewhat linearly. For sorted lists, the time requirements appear to scale linearly
+too. This might be a sign of THETA(n*log(n)) scaling, where the linear (n) part is dominant
+for the problems of the given size. This can be used to identify the merge sort algorithm.
+
+When compared to the other two sorting algorithms:
+1. In the worst-case scenario (reversed50000), it is the fastest (0.447s vs 5.183s and 2.484s).
+2. In the best-case scenario (sorted50000), it is relatively fast (0.668s vs 0.485s and 2.274s).
+Points 1. and 2. suggest that the algorithm is of the merge sort kind.
+
+
+sort3 uses: selection sort
+
+How do you know?:
+Using the time command, the following results were obtained for sort3 (real time):
+    - random5000     0.049s
+    - random10000    0.130s
+    - random50000    2.404s
+    - reversed5000   0.051s
+    - reversed10000  0.161s
+    - reversed50000  2.484s
+    - sorted5000     0.048s
+    - sorted10000    0.138s
+    - sorted50000    2.274s
+Once again, the observations are:
+1. For reversed and sorted lists of size 50000, time requirements appear to be similar,
+which suggests that upper and lower bounds of the algorithm running time follow the same
+relationships. This behaviour is indicative of the selection sort algorithm and the merge
+sort algorithm.
+2. For random and reversed lists, as the problem size increases, the time requirements
+increase seemingly exponentially. Similarly, for sorted lists, the time requirements
+appear to scale exponentially with the problem size. The corresponding scalings of O(n^2) and
+OMEGA(n^2) characterise the selection sort algorithm.
+
+When compared to the other two sorting algorithms:
+1. In the worst-case scenario (reversed50000), it is relatively slow (2.484s vs 5.183s and 0.447s).
+2. In the best-case scenario (sorted50000), it is the slowest (2.274s vs 0.485s and 0.668s).
+Points 1. and 2. suggest that the algorithm is of the selection sort kind.
