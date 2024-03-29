@@ -133,7 +133,7 @@ bool vote(int voter, int rank, string name)
         if (strcmp(candidates[i].name, name) == 0)
         {
             // Update preferences
-            preferences[voter][rank] = i;
+            preferences[voter][i] = rank + 1;
             return true;
         }
     }
@@ -146,19 +146,29 @@ bool vote(int voter, int rank, string name)
 void tabulate(void)
 {
     // Update entries in candidates[i].votes
+
+    int highest_rank = MAX_CANDIDATES + 1;
+    int favoured_candidate = -1;
+
     // Loop over voters
     for (int i = 0; i < voter_count; i++)
     {
         // Loop over candidates
+        // Find favoured candidate among non-eliminated ones
+        highest_rank = MAX_CANDIDATES + 1;
+        favoured_candidate = -1;
         for (int j = 0; j < candidate_count; j++)
         {
-            if (!candidates[preferences[i][j]].eliminated)
+            if (!candidates[j].eliminated && preferences[i][j] < highest_rank)
             {
-                // Add a vote and stop looping over candidates
-                candidates[preferences[i][j]].votes++;
-                break;
+                favoured_candidate = j;
+                highest_rank = preferences[i][j];
             }
         }
+
+        // Update the votes
+        if (highest_rank < MAX_CANDIDATES + 1)
+            candidates[favoured_candidate].votes++;
     }
     return;
 }
