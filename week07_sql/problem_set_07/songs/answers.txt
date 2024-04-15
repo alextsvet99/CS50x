@@ -1,0 +1,40 @@
+Task:
+Characterise a listener's "Audio Aura" based on
+the average energy, danceability, and valence of
+their 100 top songs of the year.
+
+Answer:
+For the sake of discussion, let us assume that the values below are known:
+avg(energy) = x,
+avg(danceability) = y, and
+avg(valence) = z.
+
+Then the task may be reformulated to combining the values x, y, and z to
+find a single numerical value of AA. This value AA, in turn, can be compared
+to some bands which indicate certain moods.
+
+To calculate AA, a weighted sum of x, y, and z can be used:
+AA = a * x + b * y + c * z, where a, b, and c are coefficients, perhaps even
+arbitrary for the time being.
+
+To estimate bands for values AA, it is possible to take single songs, which have
+a certain mood associated with them, and plug them into the formula to see what
+outputs they give. Ideally, songs of similar mood would give close values, so that,
+for example, AA = [0, 5] describes slow, melancholic songs, while values AA = (5, 10]
+describe cheerful and happy songs.
+
+It might be a good idea to use a somewhat reversed process. First, assign desired bands
+of values AA, and then calibrate the formula using a least-squares method to determine
+coefficient a, b, c.
+
+Potential drawbacks of the described method come from the adopted formula for AA.
+Combining three values into one might result in the loss of information if the coefficients
+are not picked carefully enough. For example, if for a hypothecial song 1 terms ax and by
+are small while the term cz is very large, the resulting value of AA might end up similar to
+that of a hypothetical song 2 which has big terms ax and by and a very small cz. Thus two
+songs with different profiles will have a similar AA rating which is less than ideal.
+
+A possible solution is to keep all three values x, y, z separate and to judge the mood of
+a song based on them together. My closest analogy would be how personality tests give you
+a four-letter result like NVKY or something. The model still needs to be calibrated, but,
+hopefully, it will give fewer overlaps between songs with different moods.

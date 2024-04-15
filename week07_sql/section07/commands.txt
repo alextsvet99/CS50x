@@ -1,0 +1,33 @@
+sqlite3 reads.db
+CREATE TABLE books (
+   ...>     id INTEGER,
+   ...>     title TEXT,
+   ...>     published NUMERIC,
+   ...>     rating FLOAT,
+   ...>     PRIMARY KEY (id)
+   ...> );
+.tables
+.schema
+CREATE TABLE authors (
+   ...> id INTEGER,
+   ...> author TEXT,
+   ...> author_birth NUMERIC,
+   ...> PRIMARY KEY (id)
+   ...> );
+.tables
+.schema
+
+CREATE TABLE authored (
+   ...> author_id INTEGER,
+   ...> book_id INTEGER,
+   ...> PRIMARY KEY (author_id, book_id),
+   ...> FOREIGN KEY (author_id) REFERENCES authors(id),
+   ...> FOREIGN KEY (book_id) REFERENCES books(id)
+   ...> );
+
+INSERT INTO books (title, published, rating)
+   ...> VALUES ('Flights', '2017', 4);
+SELECT * FROM books;
+DELETE FROM books WHERE title = 'Flights';
+
+.quit

@@ -1,0 +1,34 @@
+sqlite3 favourites.db
+.mode csv
+.import favorites.csv favourites
+.quit
+
+sqlite3 favourites.db
+.schema
+SELECT columns FROM table;
+SELECT * FROM favourites;
+SELECT language FROM favourites;
+SELECT language FROM favourites LIMIT 10;
+SELECT COUNT(*) FROM favourites;
+SELECT COUNT(language) FROM favourites;
+SELECT DISTINCT(language) FROM favourites;
+SELECT COUNT(DISTINCT(language)) FROM favourites;
+other functions: AVG, COUNT, DISTINCT, LOWER, MIN, MAX, UPPER
+
+other keywords: WHERE, LIKE, ORDER BY, LIMIT, GROUP BY
+SELECT COUNT(*) FROM favourites WHERE language = 'C';
+SELECT COUNT(*) FROM favourites WHERE language = 'C' AND problem = 'Hello, World';
+SELECT COUNT(*) FROM favourites WHERE language = 'C' AND problem = 'Hello, World';
+SELECT language, COUNT(*) FROM favourites GROUP BY language;
+SELECT language, COUNT(*) FROM favourites GROUP BY language ORDER BY COUNT(*);
+SELECT language, COUNT(*) FROM favourites GROUP BY language ORDER BY COUNT(*) DESC;
+SELECT language, COUNT(*) AS n FROM favourites GROUP BY language ORDER BY n DESC;
+SELECT language, COUNT(*) AS n FROM favourites GROUP BY language ORDER BY n DESC LIMIT 1;
+
+INSERT INTO favourites (language, problem) VALUES ('SQL', 'Fiftyville');
+SELECT * FROM favourites;
+DELETE FROM favourites - DO NOT USE!!! DELETES EVERYTHING
+DELETE FROM favourites WHERE Timestamp is NULL;
+UPDATE favourites SET language = 'SQL', problem = 'Fiftyville' - ALSO DESTRUCTIVE!!!
+
+.quit
